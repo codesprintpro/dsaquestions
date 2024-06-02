@@ -17,8 +17,10 @@ public class LargestSubarrayOfSumK {
                 maxK = Math.max(maxK, j - i);
             } else if (curSum > reqSum) {
                 //if we hit sum more then required sum remove increase the i index and remove its sum from the curSum variable.
-                curSum = curSum - arr[i];
-                i++;
+                while (curSum > reqSum && i < j) {
+                    curSum = curSum - arr[i];
+                    i++;
+                }
             }
         }
         System.out.println(maxK);
